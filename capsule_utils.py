@@ -5,7 +5,8 @@ from torch.autograd import Variable
 
 ''' Routing Methods for Capsules'''
 
-def dynamic_routing(opt, v):
+def kmeans_routing(opt, v):
+    ''' The routing method in `Dynamic Routing Between Capsules` '''
     b = Variable(torch.zeros(1152, 10))
     if opt.use_cuda & torch.cuda.is_available():
         b = b.cuda()

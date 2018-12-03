@@ -50,6 +50,7 @@ class ConvCaps(nn.Module):
             pose, act = em_routing(V, a, self.beta_u, self.beta_a, self.opt)
             poses.append(pose)
             a_s.append(act)
+            
         poses = torch.cat(poses, dim=1)
         acts = torch.cat(a_s, dim=1)
         capsules = torch.cat([poses.view(batch_size, h, w, self.out_dim, self.pose_len),\
